@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Məzənnə</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/rates.css">
+</head>
+<body>
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#top">Məzənnə</a>
+    <button id="theme" class="ghost" type="button" aria-label="Açıq və tünd rejim arasında keç">Rejim</button>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero" aria-labelledby="h1">
+    <p class="eyebrow">ExchangeRate-API</p>
+    <h1 id="h1">Valyuta məzənnələri</h1>
+    <p id="rates-status" class="status" role="status" data-state="loading">
+      <span class="dot" aria-hidden="true"></span>
+      <span id="rates-status-text">Məzənnələr yüklənir…</span>
+      <button id="rates-retry" class="ghost" type="button" hidden>Yenidən yoxla</button>
+    </p>
+  </section>
+
+  <section id="mezenne" aria-labelledby="h-rates">
+    <h2 id="h-rates">Manat nə qədərdir?</h2>
+    <div id="featured" class="featured" aria-live="polite">
+      <div class="fcard skeleton"></div><div class="fcard skeleton"></div><div class="fcard skeleton"></div><div class="fcard skeleton"></div>
+    </div>
+
+    <div class="split">
+      <form id="conv" class="panel" autocomplete="off">
+        <h3>Konvertor</h3>
+        <div class="field">
+          <label for="amount">Məbləğ</label>
+          <input id="amount" type="number" inputmode="decimal" min="0" step="any" value="100">
+        </div>
+        <div class="pair">
+          <div class="field">
+            <label for="from">Hansından</label>
+            <select id="from"></select>
+          </div>
+          <button id="swap" class="ghost swap" type="button" aria-label="Valyutaları yerlə dəyiş">⇄</button>
+          <div class="field">
+            <label for="to">Hansına</label>
+            <select id="to"></select>
+          </div>
+        </div>
+        <div class="result">
+          <output id="result" for="amount from to">—</output>
+          <div id="result-sub" class="sub"></div>
+        </div>
+      </form>
+
+      <div class="panel">
+        <div class="table-head">
+          <div class="field">
+            <label for="rate-search">Valyuta axtar</label>
+            <input id="rate-search" type="search" placeholder="Kod və ya ad: EUR, dollar, lirə">
+          </div>
+          <span id="rate-count" class="count"></span>
+        </div>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Kod</th>
+                <th scope="col">Valyuta</th>
+                <th scope="col" class="num">1 USD =</th>
+                <th scope="col" class="num">1 vahid, AZN</th>
+              </tr>
+            </thead>
+            <tbody id="rate-body"></tbody>
+          </table>
+          <div id="rate-empty" class="empty" hidden>Heç nə tapılmadı.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Məlumat mənbəyi: <code>https://api.exchangerate-api.com/v4/latest/USD</code>
+  </div>
+</footer>
+
+<!-- Skriptlər bu ardıcıllıqla yüklənməlidir -->
+<script src="js/config.js"></script>
+<script src="data/rates-snapshot.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/rates.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

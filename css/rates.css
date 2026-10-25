@@ -1,0 +1,42 @@
+/* Məzənnə bölməsi: seçilmiş valyuta kartları, konvertor, cədvəl. */
+
+/* Seçilmiş valyutalar */
+.featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.fcard { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; min-width: 0; }
+.fcard .k { font: 500 0.8rem/1 var(--font-mono); color: var(--muted); letter-spacing: 0.04em; }
+.fcard .v { margin: 10px 0 6px; font: 500 1.7rem/1.1 var(--font-mono); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.fcard .v small { font-size: 0.8rem; color: var(--muted); margin-left: 4px; }
+.fcard .r { font: 400 0.8rem/1.3 var(--font-mono); color: var(--muted); }
+.fcard.skeleton { min-height: 118px; }
+
+/* Konvertor və cədvəl yan-yana (geniş ekranda) */
+.split { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+@media (min-width: 900px) {
+  .split { grid-template-columns: minmax(280px, 360px) minmax(0, 1fr); align-items: start; }
+}
+
+/* Konvertor */
+input[type="number"] { font-family: var(--font-mono); font-size: 1.15rem; }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 8px; align-items: end; margin-bottom: 14px; }
+.pair .field { margin: 0; }
+.swap { height: 42px; width: 42px; padding: 0; font-size: 1.1rem; }
+.result { margin-top: 6px; padding: 16px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); }
+.result output { display: block; font: 500 1.6rem/1.15 var(--font-mono); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.result .sub { margin-top: 6px; font: 400 0.82rem/1.3 var(--font-mono); opacity: 0.9; }
+
+/* Cədvəl */
+.table-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; justify-content: space-between; margin-bottom: 12px; }
+.table-head .field { margin: 0; flex: 1 1 220px; max-width: 360px; }
+.scroll { overflow: auto; max-height: 520px; border: 1px solid var(--line); border-radius: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td.name { white-space: normal; min-width: 160px; }
+thead th { position: sticky; top: 0; background: var(--surface); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); z-index: 1; }
+td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--bg); }
+tbody tr[data-home="1"] td { background: color-mix(in srgb, var(--hi) 28%, transparent); }
+tbody tr[aria-selected="true"] td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+td button { all: unset; cursor: pointer; font: 500 0.9rem var(--font-mono); color: var(--accent); }
+td button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.empty { padding: 24px; color: var(--muted); text-align: center; }

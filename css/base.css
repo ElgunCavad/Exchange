@@ -1,0 +1,82 @@
+/* Ümumi üslublar: sıfırlama, səhifə çərçivəsi, üst zolaq, giriş, forma elementləri, alt hissə. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.55 var(--font-body);
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--accent); }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.wrap {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Üst zolaq */
+.bar { border-bottom: 1px solid var(--line); background: var(--surface); }
+.bar-in { display: flex; align-items: center; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.brand { font-weight: 800; font-stretch: 112%; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; margin-right: auto; }
+
+/* Düymə */
+.ghost {
+  background: transparent; border: 1px solid var(--line); border-radius: 6px;
+  padding: 6px 12px; cursor: pointer; font-size: 0.9rem;
+}
+.ghost:hover { border-color: var(--accent); }
+
+/* Giriş */
+.hero { padding-block: 40px 8px; }
+.eyebrow {
+  margin: 0 0 12px; font: 500 0.78rem/1 var(--font-mono);
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+}
+h1 {
+  margin: 0; max-width: 18ch;
+  font-family: var(--font-display); font-weight: 800; font-stretch: 125%;
+  font-size: clamp(2rem, 6vw, 3.8rem); line-height: 1.02; letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.status {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  margin: 20px 0 0; font-size: 0.95rem; color: var(--muted);
+}
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); flex: none; }
+.status[data-state="live"] .dot { background: var(--accent); }
+.status[data-state="offline"] .dot { background: var(--hi); }
+.status[data-state="error"] .dot { background: var(--bad); }
+
+/* Bölmə və başlıqlar */
+section { padding-block: 36px 8px; }
+h2 {
+  margin: 0 0 18px; font-family: var(--font-display); font-weight: 700; font-stretch: 100%;
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem); letter-spacing: -0.01em; text-wrap: balance;
+}
+h3 { margin: 0 0 12px; font-size: 1rem; font-weight: 700; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; min-width: 0; }
+
+/* Forma elementləri */
+.field { display: grid; gap: 6px; margin-bottom: 14px; }
+label { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+input[type="number"], input[type="search"], select {
+  width: 100%; min-width: 0; padding: 10px 12px; background: var(--bg);
+  border: 1px solid var(--line); border-radius: 6px;
+}
+.count { font: 400 0.85rem/1 var(--font-mono); color: var(--muted); }
+
+/* Alt hissə */
+footer { margin-top: 48px; padding-block: 24px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; }
+footer code { font-family: var(--font-mono); font-size: 0.82rem; overflow-wrap: anywhere; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}

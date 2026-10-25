@@ -1,0 +1,49 @@
+/* Rənglər və şriftlər. Bütün digər CSS faylları yalnız bu dəyişənlərdən istifadə edir. */
+:root {
+  --bg: #EBEFEC;
+  --surface: #F8FAF8;
+  --ink: #0E1F1B;
+  --muted: #52645E;
+  --line: #CDD7D2;
+  --accent: #0B6B5A;
+  --accent-ink: #FFFFFF;
+  --hi: #F2B632;
+  --hi-ink: #2A1F00;
+  --bad: #B3261E;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+/* Tünd rejim: cihazın seçimi ilə */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1513;
+    --surface: #121E1B;
+    --ink: #E6EFEB;
+    --muted: #93A8A0;
+    --line: #243430;
+    --accent: #46C2A6;
+    --accent-ink: #04211A;
+    --hi: #E7B13A;
+    --hi-ink: #241A00;
+    --bad: #F2877F;
+    color-scheme: dark;
+  }
+}
+
+/* Tünd rejim: düymə ilə seçim */
+:root[data-theme="dark"] {
+  --bg: #0C1513;
+  --surface: #121E1B;
+  --ink: #E6EFEB;
+  --muted: #93A8A0;
+  --line: #243430;
+  --accent: #46C2A6;
+  --accent-ink: #04211A;
+  --hi: #E7B13A;
+  --hi-ink: #241A00;
+  --bad: #F2877F;
+  color-scheme: dark;
+}
